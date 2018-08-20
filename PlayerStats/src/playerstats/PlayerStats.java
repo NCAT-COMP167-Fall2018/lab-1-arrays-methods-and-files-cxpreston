@@ -21,27 +21,26 @@ public class PlayerStats {
     public static void main(String[] args) {
         String[] names = new String[80];
         int[] scores = new int[80];
-        
+
         readData(names, scores, args[0]);
     }
-        public static void readData(String[] names, int[] scores, String filename ){
-                try{
-                Scanner reader = new Scanner(new File(filename));
-                
-                int currentIndex = 0;
-                while(reader.hasNext()) {
-                    String[] line = reader.nextLine().split("");
-                    
-                    names[currentIndex] = line[0];
-                    scores[currentIndex] = Integer.parseInt(line[1]);
-                    
-                    currentIndex++;
-                }
-        }catch (FileNotFoundException ex){
+
+    public static void readData(String[] names, int[] scores, String filename) {
+        try {
+            Scanner reader = new Scanner(new File(filename));
+
+            int currentIndex = 0;
+            while (reader.hasNext()) {
+                String[] line = reader.nextLine().split(" ");
+
+                names[currentIndex] = line[0];
+                scores[currentIndex] = Integer.parseInt(line[1]);
+
+                currentIndex++;
+            }
+        } catch (FileNotFoundException ex) {
             System.err.println(" Unable to read in readData");
-    
-}
+
+        }
     }
 }
-    
-
